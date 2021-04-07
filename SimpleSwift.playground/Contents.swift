@@ -1,11 +1,98 @@
 print("Welcome to the UW Calculator Playground")
 
 func calculate(_ args: [String]) -> Int {
-    return -1
+    if args[args.count - 1] == "count" {
+        return args.count - 1
+    } else if args[args.count - 1] == "avg" {
+        if args.count == 1 {
+            return 0
+        } else {
+            var avg = 0
+            for i in 0...args.count - 1{
+                if i != args.count - 1 {
+                    let numInt = Int(args[i])
+                    avg += numInt!
+                }
+            }
+            return avg / (args.count - 1)
+        }
+    } else if args[args.count - 1] == "fact" {
+        if args.count == 1 {
+            return 0
+        } else {
+            let max = Int(args[0])!
+            var total = 1
+            if max == 0 {
+                return 1
+            } else {
+                for i in 1...max {
+                    total *= i
+                }
+                return total
+            }
+        }
+    } else {
+        if args[1] == "+" {
+            return Int(args[0])! + Int(args[2])!
+        } else if args[1] == "-" {
+            return Int(args[0])! - Int(args[2])!
+        } else if args[1] == "*" {
+            return Int(args[0])! * Int(args[2])!
+        } else if args[1] == "/" {
+            return Int(args[0])! / Int(args[2])!
+        } else if args[1] == "%" {
+            return Int(args[0])! % Int(args[2])!
+        }
+    }
+    return 0
 }
 
 func calculate(_ arg: String) -> Int {
-    return -1
+    let args = arg.split(separator: " ")
+    if args[args.count - 1] == "count" {
+        return args.count - 1
+    } else if args[args.count - 1] == "avg" {
+        if args.count == 1 {
+            return 0
+        } else {
+            var avg = 0
+            for i in 0...args.count - 1{
+                if i != args.count - 1 {
+                    let numInt = Int(args[i])
+                    avg += numInt!
+                }
+            }
+            return avg / (args.count - 1)
+        }
+    } else if args[args.count - 1] == "fact" {
+        if args.count == 1 {
+            return 0
+        } else {
+            let max = Int(args[0])!
+            var total = 1
+            if max == 0 {
+                return 1
+            } else {
+                for i in 1...max {
+                    total *= i
+                }
+                return total
+            }
+        }
+    } else {
+        if args[1] == "+" {
+            return Int(args[0])! + Int(args[2])!
+        } else if args[1] == "-" {
+            return Int(args[0])! - Int(args[2])!
+        } else if args[1] == "*" {
+            return Int(args[0])! * Int(args[2])!
+        } else if args[1] == "/" {
+            return Int(args[0])! / Int(args[2])!
+        } else if args[1] == "%" {
+            return Int(args[0])! % Int(args[2])!
+        }
+    }
+    return 0
 }
 
 // -------------------------------------------
